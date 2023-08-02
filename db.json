@@ -19,6 +19,36 @@
       "textarea": "",
       "file": "",
       "id": 2
+    },
+    {
+      "email": "rossi@gmail.com",
+      "password": "$2a$10$A0XRv9/BeFc2eWteVMPYkeYICjCP8zkp9hzfHkOcB6TBiRvIxEIrK",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "genere": "Maschio",
+      "textarea": "",
+      "file": "",
+      "id": 3
+    },
+    {
+      "email": "ef@gmail.com",
+      "password": "$2a$10$FG75n/KqQ3Q/wpXRF9MTauMZb9LZJ2zrN68JFTYPsgKlEcn.q1Aoq",
+      "nome": "efisio",
+      "cognome": "Diana",
+      "genere": "Altro",
+      "textarea": "ssgvsdvsv",
+      "file": "",
+      "id": 4
+    },
+    {
+      "email": "ww@gmail.com",
+      "password": "$2a$10$b2dKVE9Gg2InbNGB1HJJPupi8EX2f/egcVC46NsMHov3vfI/WtTlS",
+      "nome": "EEEE",
+      "cognome": "ww",
+      "genere": "Femmina",
+      "textarea": "",
+      "file": "",
+      "id": 5
     }
   ]
 }

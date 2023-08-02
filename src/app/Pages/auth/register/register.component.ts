@@ -44,7 +44,6 @@ export class RegisterComponent {
   register() {
     this.authSvc.signUp(this.formData).subscribe((res) => {
       console.log("registrato");
-      this.router.navigate(["register"]);
     });
   }
 }

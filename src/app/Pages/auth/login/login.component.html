@@ -9,8 +9,8 @@
     type="email"
     class="m-1"
     name="email"
-    required=""
-    [ngModel]="formData.email"
+    required
+    [(ngModel)]="formData.email"
     placeholder="Inserisci la tua email"
   />
   <span
@@ -24,7 +24,7 @@
     type="password"
     class="m-1"
     name="password"
-    [ngModel]="formData.password"
+    [(ngModel)]="formData.password"
     required
     placeholder="Inserisci la tua password"
   />
@@ -34,7 +34,7 @@
     >Inserisci password</span
   >
 
-  <button class="btn btn-success" (click)="login()" [disabled]="!myForm.valid">
+  <button class="btn btn-success" (click)="logins()" [disabled]="!myForm.valid">
     Accedi
   </button>
 </form>

@@ -5,7 +5,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 import { IRegister } from "../interface/register";
 import { IAccessData } from "../interface/access-data";
 import { ILogin } from "../interface/login";
-import { tap } from "rxjs";
+import { BehaviorSubject, map, tap } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -16,10 +16,13 @@ export class AuthService {
   url: string = "http://localhost:3000";
   registerUrl: string = this.url + "/register";
   loginUrl: string = this.url + "/login";
-  authSubject: any;
-
+  private authSubject = new BehaviorSubject<null | IAccessData>(null);
+  user$ = this.authSubject.asObservable(); //contiene dati sull'utente se è loggato
+  isLoggedIn$ = this.user$.pipe(map((user) => !!user));
   autoLogoutTimer: any;
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    console.log(this.isLoggedIn$);
+  }
 
   signUp(data: IRegister) {
     return this.http.post<IAccessData>(this.registerUrl, data);
@@ -31,10 +34,10 @@ export class AuthService {
         this.authSubject.next(data);
         localStorage.setItem("accessData", JSON.stringify(data));
 
-        const expDate = this.jwtHelper.getTokenExpirationDate(
-          data.accessToken
-        ) as Date;
-        this.autoLogout(expDate);
+        //   const expDate = this.jwtHelper.getTokenExpirationDate(
+        //     data.accessToken
+        //   ) as Date;
+        //   this.autoLogout(expDate);
       })
     );
   }
@@ -42,13 +45,21 @@ export class AuthService {
   logout() {
     this.authSubject.next(null);
     localStorage.removeItem("accessData");
-    this.router.navigate(["/login"]);
+    this.router.navigate(["auth/login"]);
   }
 
-  autoLogout(expDate: Date) {
-    const expMs = expDate.getTime() - new Date().getTime();
-    this.autoLogoutTimer = setTimeout(() => {
-      this.logout();
-    }, expMs);
-  }
+  // autoLogout(expDate: Date) {
+  //   const expMs = expDate.getTime() - new Date().getTime();
+  //   this.autoLogoutTimer = setTimeout(() => {
+  //     this.logout();
+  //   }, expMs);
+  // }
+
+  // restoreUser() {
+  //   const userJson: string | null = localStorage.getItem("accessData");
+  //   if (!userJson) return;
+  //   const accessData: IAccessData = JSON.parse(userJson);
+  //   if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return;
+  //   this.authSubject.next(accessData);
+  // }
 }
