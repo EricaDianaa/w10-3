@@ -20,7 +20,7 @@ export class LoginComponent {
     this.authSvc.login(this.formData).subscribe((data) => {
       console.log("login avenuto");
       console.log(data);
-      this.router.navigate(["login"]);
+      this.router.navigate(["/profile"]);
     });
   }
 }

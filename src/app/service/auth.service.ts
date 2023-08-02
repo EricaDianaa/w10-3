@@ -34,10 +34,10 @@ export class AuthService {
         this.authSubject.next(data);
         localStorage.setItem("accessData", JSON.stringify(data));
 
-        //   const expDate = this.jwtHelper.getTokenExpirationDate(
-        //     data.accessToken
-        //   ) as Date;
-        //   this.autoLogout(expDate);
+        const expDate = this.jwtHelper.getTokenExpirationDate(
+          data.accessToken
+        ) as Date;
+        this.autoLogout(expDate);
       })
     );
   }
@@ -48,18 +48,23 @@ export class AuthService {
     this.router.navigate(["auth/login"]);
   }
 
-  // autoLogout(expDate: Date) {
-  //   const expMs = expDate.getTime() - new Date().getTime();
-  //   this.autoLogoutTimer = setTimeout(() => {
-  //     this.logout();
-  //   }, expMs);
-  // }
+  autoLogout(expDate: Date) {
+    const expMs = expDate.getTime() - new Date().getTime();
+    this.autoLogoutTimer = setTimeout(() => {
+      this.logout();
+    }, expMs);
+  }
 
-  // restoreUser() {
-  //   const userJson: string | null = localStorage.getItem("accessData");
-  //   if (!userJson) return;
-  //   const accessData: IAccessData = JSON.parse(userJson);
-  //   if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return;
-  //   this.authSubject.next(accessData);
-  // }
+  restoreUser() {
+    const userJson: string | null = localStorage.getItem("accessData");
+    if (!userJson) return;
+    const accessData: IAccessData = JSON.parse(userJson);
+    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return;
+    this.authSubject.next(accessData);
+  }
+
+  datiUser(user: IAccessData) {
+    const newUser = user.user;
+    console.log(newUser);
+  }
 }

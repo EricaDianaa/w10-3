@@ -3,6 +3,7 @@
   class="d-flex flex-column justify-content-center border border-secondary p-3 bg-info-subtle m-5"
 >
   <input
+    #nome="ngModel"
     type="text"
     class="m-1"
     [(ngModel)]="formData.nome"
@@ -10,11 +11,12 @@
     placeholder="Inserisci il tuo nome"
     required
   />
-  <!-- <span *ngIf="!isValid('name') && isTouched('name')" class="text-danger m-1"
+  <span *ngIf="nome.invalid && nome.touched" class="text-danger m-1"
     >Inserisci il nome</span
-  > -->
+  >
 
   <input
+    #cognome="ngModel"
     type="text"
     class="m-1"
     [(ngModel)]="formData.cognome"
@@ -22,13 +24,12 @@
     required
     placeholder="Inserisci il tuo cognome"
   />
-  <!-- <span
-    *ngIf="!isValid('cognome') && isTouched('cognome')"
-    class="m-1 text-danger"
+  <span *ngIf="cognome.invalid && cognome.touched" class="m-1 text-danger"
     >Inserisci il cognome</span
-  > -->
+  >
 
   <input
+    #email="ngModel"
     type="email"
     class="m-1"
     [(ngModel)]="formData.email"
@@ -36,7 +37,12 @@
     required
     placeholder="Inserisci la tua email"
   />
+  <span *ngIf="email.invalid && email.touched" class="text-danger m-1"
+    >Inserisci email</span
+  >
+
   <input
+    #password="ngModel"
     type="password"
     class="m-1"
     required
@@ -44,11 +50,9 @@
     name="password"
     placeholder="Inserisci  password"
   />
-  <!-- <span
-    *ngIf="!isValid('authData') && isTouched('authData')"
-    class="text-danger m-1"
-    >Password non valida</span
-  > -->
+  <span *ngIf="password.invalid && password.touched" class="text-danger m-1"
+    >Inserisci password</span
+  >
 
   <select name="genere" id="genere" class="m-1" [(ngModel)]="formData.genere">
     <option value="Maschio">Maschio</option>
@@ -78,7 +82,7 @@
 </form>
 <div class="d-flex flex-column align-items-center justify-content-center">
   <h5>Sei gia registrato?</h5>
-  <button class="btn btn-primary" routerLink="/login">
+  <button class="btn btn-primary" routerLink="/auth/login">
     Accedi
   </button>
 </div>

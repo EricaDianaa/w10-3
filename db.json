@@ -49,6 +49,16 @@
       "textarea": "",
       "file": "",
       "id": 5
+    },
+    {
+      "email": "rosi@gmail.com",
+      "password": "$2a$10$qvrDm8L686jdfKCtupAMWOhep59n0XKBn6OI6nY6R0m14JIMgHdpS",
+      "nome": "Rosalba",
+      "cognome": "Demontis",
+      "genere": "Femmina",
+      "textarea": "ciao",
+      "file": "",
+      "id": 6
     }
   ]
 }
