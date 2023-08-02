@@ -1,0 +1,84 @@
+<h1 class="text-center mt-3">Registrati</h1>
+<form
+  class="d-flex flex-column justify-content-center border border-secondary p-3 bg-info-subtle m-5"
+>
+  <input
+    type="text"
+    class="m-1"
+    [(ngModel)]="formData.nome"
+    name="name"
+    placeholder="Inserisci il tuo nome"
+    required
+  />
+  <!-- <span *ngIf="!isValid('name') && isTouched('name')" class="text-danger m-1"
+    >Inserisci il nome</span
+  > -->
+
+  <input
+    type="text"
+    class="m-1"
+    [(ngModel)]="formData.cognome"
+    name="cognome"
+    required
+    placeholder="Inserisci il tuo cognome"
+  />
+  <!-- <span
+    *ngIf="!isValid('cognome') && isTouched('cognome')"
+    class="m-1 text-danger"
+    >Inserisci il cognome</span
+  > -->
+
+  <input
+    type="email"
+    class="m-1"
+    [(ngModel)]="formData.email"
+    name="email"
+    required
+    placeholder="Inserisci la tua email"
+  />
+  <input
+    type="password"
+    class="m-1"
+    required
+    [(ngModel)]="formData.password"
+    name="password"
+    placeholder="Inserisci  password"
+  />
+  <!-- <span
+    *ngIf="!isValid('authData') && isTouched('authData')"
+    class="text-danger m-1"
+    >Password non valida</span
+  > -->
+
+  <select name="genere" id="genere" class="m-1" [(ngModel)]="formData.genere">
+    <option value="Maschio">Maschio</option>
+    <option value="Femmina">Femmina</option>
+    <option value="Altro">Altro</option>
+  </select>
+
+  <input
+    type="file"
+    class="m-1 bg-white border border-secondary"
+    name="nome"
+    [(ngModel)]="formData.file"
+  />
+
+  <textarea
+    [(ngModel)]="formData.textarea"
+    class="m-1"
+    id="textarea"
+    name="textarea"
+    rows="4"
+    cols="50"
+  ></textarea>
+
+  <button class="btn btn-success" (click)="register()">
+    Registrati
+  </button>
+</form>
+<div class="d-flex flex-column align-items-center justify-content-center">
+  <h5>Sei gia registrato?</h5>
+  <button class="btn btn-primary" routerLink="/login">
+    Accedi
+  </button>
+</div>

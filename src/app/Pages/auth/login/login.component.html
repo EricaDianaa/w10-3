@@ -1,0 +1,41 @@
+<h1 class="text-center">Login</h1>
+<form
+  #myForm="ngForm"
+  #f="ngForm"
+  class="d-flex flex-column justify-content-center border border-secondary p-3 bg-info-subtle m-5"
+>
+  <input
+    #nome="ngModel"
+    type="email"
+    class="m-1"
+    name="email"
+    required=""
+    [ngModel]="formData.email"
+    placeholder="Inserisci la tua email"
+  />
+  <span
+    class="border border-danger rounded-3 p- 2 bg-danger-subtle m-1 text-center"
+    *ngIf="nome.invalid && nome.touched"
+    >Inserisci nome</span
+  >
+
+  <input
+    #password="ngModel"
+    type="password"
+    class="m-1"
+    name="password"
+    [ngModel]="formData.password"
+    required
+    placeholder="Inserisci la tua password"
+  />
+  <span
+    class="border border-danger rounded-3 p- 2 bg-danger-subtle m-1 text-center"
+    *ngIf="password.invalid && password.touched"
+    >Inserisci password</span
+  >
+
+  <button class="btn btn-success" (click)="login()" [disabled]="!myForm.valid">
+    Accedi
+  </button>
+</form>
+<div class="d-flex flex-column align-items-center justify-content-center"></div>

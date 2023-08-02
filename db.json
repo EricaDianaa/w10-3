@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "email": "ericadiana2003@gmail.com",
+      "password": "$2a$10$8wq/PJatnkvcgl6oUNf7FOwHJge/VDPo1BFdsfiop70mtysP16OCC",
+      "nome": "Erica",
+      "cognome": "Diana",
+      "genere": "Femmina",
+      "textarea": "ciao",
+      "file": "",
+      "id": 1
+    },
+    {
+      "email": "mario@gmail.com",
+      "password": "$2a$10$v6T4wUK/t42UrtQLH8Emd.hHqpFo8TRfrAZ5Ecm/agmoWyK2Nj.3K",
+      "nome": "Erica",
+      "cognome": "33",
+      "genere": "Maschio",
+      "textarea": "",
+      "file": "",
+      "id": 2
+    }
+  ]
+}
