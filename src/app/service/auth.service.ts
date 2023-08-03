@@ -6,6 +6,7 @@ import { IRegister } from "../interface/register";
 import { IAccessData } from "../interface/access-data";
 import { ILogin } from "../interface/login";
 import { BehaviorSubject, map, tap } from "rxjs";
+import { IUser } from "../interface/user";
 
 @Injectable({
   providedIn: "root",
@@ -13,13 +14,15 @@ import { BehaviorSubject, map, tap } from "rxjs";
 export class AuthService {
   private jwtHelper: JwtHelperService = new JwtHelperService();
   //URL CHIAMATE HTTP
+
   url: string = "http://localhost:3000";
   registerUrl: string = this.url + "/register";
   loginUrl: string = this.url + "/login";
   private authSubject = new BehaviorSubject<null | IAccessData>(null);
-  user$ = this.authSubject.asObservable(); //contiene dati sull'utente se è loggato
+  user$ = this.authSubject.asObservable();
   isLoggedIn$ = this.user$.pipe(map((user) => !!user));
   autoLogoutTimer: any;
+
   constructor(private http: HttpClient, private router: Router) {
     console.log(this.isLoggedIn$);
   }
@@ -63,10 +66,9 @@ export class AuthService {
     this.authSubject.next(accessData);
   }
 
-  // datiUser() {
-  //   const newUser =
-  //   console.log(newUser);
-  // }
+  datiUser() {
+    return this.http.get<IUser[]>("http://localhost:3000/users");
+  }
 
   // utenti() {
   //   return this.http.get(this.url);

@@ -3,4 +3,8 @@ export interface IUser {
   nome: string;
   cognome: string;
   email: string;
+  genere: string;
+  password: string;
+  textarea: string;
+  file: string;
 }

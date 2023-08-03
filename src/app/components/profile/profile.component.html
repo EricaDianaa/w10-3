@@ -10,9 +10,11 @@
         <div class="card-body">
           <h5 class="card-title">{{loggerUser.nome}} {{loggerUser.cognome}}</h5>
           <p class="card-text">
-            {{loggerUser.email}}
+            {{loggerUser.email}} <br />
+            {{loggerUser.password}} <br />
+            {{loggerUser.genere}}
           </p>
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          <a href="#" class="btn btn-primary" routerLink="/">Logout</a>
         </div>
       </div>
     </div>

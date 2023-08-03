@@ -1,3 +1,25 @@
 <h1>Benvenuto</h1>
-<h2>Vuoi provare la nostra app?</h2>
-<p>Allora registrati o accedi se sei gia registrato</p>
+<button nz-button nzType="primary">Primary Button</button>
+<p>Registrati o accedi se sei gia registrato</p>
+<h2>Utenti già registrati</h2>
+<div class="container">
+  <div class="row">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-xl-3 col-xxl-2"
+      *ngFor="let item of utenti"
+    >
+      <div class="card">
+        <img
+          src="https://cdn.calciomercato.com/images/2019-05/Whatsapp.senza.immagine.2019.460x340.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{item.nome}} {{item.cognome}}</h5>
+          <p class="card-text">{{item.email}}</p>
+          <p class="card-text">{{item.genere}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
