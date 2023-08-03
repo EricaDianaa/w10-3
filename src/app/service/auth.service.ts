@@ -63,8 +63,12 @@ export class AuthService {
     this.authSubject.next(accessData);
   }
 
-  datiUser(user: IAccessData) {
-    const newUser = user.user;
-    console.log(newUser);
-  }
+  // datiUser() {
+  //   const newUser =
+  //   console.log(newUser);
+  // }
+
+  // utenti() {
+  //   return this.http.get(this.url);
+  // }
 }

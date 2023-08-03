@@ -13,9 +13,20 @@ export class ProfileComponent {
   //   accessToken: "",
   //   user: IUser|
   // };
-  constructor(private authSvc: AuthService) {}
-  // dati() {
-  //   this.authSvc.datiUser(this.formData);
-  //   const i:IUser=this.formData.user
-  // }
+
+  loggerUser!: IUser;
+  constructor(private authSvc: AuthService) {
+    // this.authSvc.utenti().subscribe((res) => {
+    //   console.log(res);
+    // });
+    // dati() {
+    //   });
+  }
+
+  ngOnInit() {
+    this.authSvc.user$.subscribe((accesData) => {
+      console.log(accesData);
+      return (this.loggerUser = accesData?.user as IUser);
+    });
+  }
 }
